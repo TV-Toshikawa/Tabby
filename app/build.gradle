@@ -41,16 +41,19 @@ android {
     }
 
     buildTypes {
-        release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles += "proguard-rules.pro"
-        }
-
         debug {
             minifyEnabled true
             shrinkResources true
             proguardFiles += "proguard-rules.pro"
+            signingConfig signingConfigs.android
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles += "proguard-rules.pro"
+            if (file('release.jks').exists()) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 
