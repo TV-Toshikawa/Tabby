@@ -95,7 +95,3 @@ dependencies {
     //HiddenApiBypass
     implementation 'org.lsposed.hiddenapibypass:hiddenapibypass:4.3'
 }
-
-tasks.withType(JavaCompile).configureEach {
-    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-}
