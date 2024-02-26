@@ -57,6 +57,7 @@ public class SingleListView {
         }
 
         /* ランチャーに設定されているかの確認 */
+        @Deprecated
         private boolean isUpdater(int i) {
             try {
                 return Objects.equals(i, Preferences.load(getContext(), Constants.KEY_FLAG_UPDATE_MODE, 1));

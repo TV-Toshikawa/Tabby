@@ -68,6 +68,7 @@ public class DeviceOwnerFragment extends PreferenceFragmentCompat {
     }
 
     @SuppressLint("NewApi")
+    @Deprecated
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.pre_owner, rootKey);
@@ -192,6 +193,7 @@ public class DeviceOwnerFragment extends PreferenceFragmentCompat {
 
     /* 初期化 */
     @SuppressLint("NewApi")
+    @Deprecated
     private void initialize() {
         DevicePolicyManager dpm = (DevicePolicyManager) requireActivity().getSystemService(Context.DEVICE_POLICY_SERVICE);
         if (dpm.isDeviceOwnerApp(requireActivity().getPackageName())) {
@@ -283,6 +285,7 @@ public class DeviceOwnerFragment extends PreferenceFragmentCompat {
         initialize();
     }
 
+    @Deprecated
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -378,6 +381,7 @@ public class DeviceOwnerFragment extends PreferenceFragmentCompat {
     }
 
     /* 解凍コピータスク */
+    @Deprecated
     public static class TryApkMTask extends AsyncTask<Object, Void, Object> {
 
         public static TryApkMTask.Listener mListener;
@@ -514,6 +518,7 @@ public class DeviceOwnerFragment extends PreferenceFragmentCompat {
     }
 
     /* 解凍コピータスク */
+    @Deprecated
     public static class TryXApkTask extends AsyncTask<Object, Void, Object> {
 
         public static TryXApkTask.Listener mListener;
@@ -522,6 +527,7 @@ public class DeviceOwnerFragment extends PreferenceFragmentCompat {
         public static String obbPath1;
         public static String obbPath2;
 
+        @Deprecated
         @Override
         protected void onPreExecute() {
             tryXApkTask = this;
@@ -529,6 +535,7 @@ public class DeviceOwnerFragment extends PreferenceFragmentCompat {
             mListener.onShow();
         }
 
+        @Deprecated
         @Override
         protected Object doInBackground(Object... value) {
             String str = new File(getInstance().splitInstallData[0]).getParent() + File.separator + new File(getInstance().splitInstallData[0]).getName().replaceFirst("\\..*", ".zip");
@@ -598,6 +605,7 @@ public class DeviceOwnerFragment extends PreferenceFragmentCompat {
             }
         }
 
+        @Deprecated
         private void onProgressUpdate(String str) {
             mListener.onProgressUpdate(str);
         }
@@ -681,10 +689,12 @@ public class DeviceOwnerFragment extends PreferenceFragmentCompat {
     }
 
     /* インストールタスク */
+    @Deprecated
     public static class TryApkTask extends AsyncTask<Object, Void, Object> {
         public static TryApkTask.Listener mListener;
         public static TryApkTask tryApkTask;
 
+        @Deprecated
         @Override
         protected void onPreExecute() {
             tryApkTask = this;
@@ -692,6 +702,7 @@ public class DeviceOwnerFragment extends PreferenceFragmentCompat {
         }
 
         @SuppressLint("UnspecifiedImmutableFlag")
+        @Deprecated
         @Override
         protected Object doInBackground(Object... value) {
             if (isDhizukuActive(getInstance().requireActivity())) {

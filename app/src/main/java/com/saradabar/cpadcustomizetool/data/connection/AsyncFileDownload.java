@@ -10,12 +10,12 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
 
+@Deprecated
 public class AsyncFileDownload extends AsyncTask<String, Void, Boolean> {
 
 	DownloadEventListenerList downloadEventListenerList;
@@ -26,6 +26,7 @@ public class AsyncFileDownload extends AsyncTask<String, Void, Boolean> {
 	BufferedInputStream bufferedInputStream;
 	int totalByte = 0, currentByte = 0;
 
+	@Deprecated
 	public AsyncFileDownload(Activity activity, String str, File file, int i) {
 		url = str;
 		outputFile = file;
@@ -34,6 +35,7 @@ public class AsyncFileDownload extends AsyncTask<String, Void, Boolean> {
 		downloadEventListenerList.addEventListener((DownloadEventListener) activity);
 	}
 
+	@Deprecated
 	@Override
 	protected Boolean doInBackground(String... str) {
 		final byte[] buffer = new byte[1024];
@@ -76,10 +78,12 @@ public class AsyncFileDownload extends AsyncTask<String, Void, Boolean> {
 		return true;
 	}
 
+	@Deprecated
 	@Override
 	protected void onPreExecute() {
 	}
 
+	@Deprecated
 	@Override
 	protected void onPostExecute(Boolean result) {
 		if (result != null) {
@@ -88,6 +92,7 @@ public class AsyncFileDownload extends AsyncTask<String, Void, Boolean> {
 		} else downloadEventListenerList.connectionErrorNotify(reqCode);
 	}
 
+	@Deprecated
 	@Override
 	protected void onProgressUpdate(Void... progress) {
 	}

@@ -1,6 +1,5 @@
 package com.saradabar.cpadcustomizetool.data.handler;
 
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
@@ -9,16 +8,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.google.android.material.progressindicator.LinearProgressIndicator;
-import com.saradabar.cpadcustomizetool.R;
 import com.saradabar.cpadcustomizetool.data.connection.AsyncFileDownload;
 import com.saradabar.cpadcustomizetool.view.flagment.MainFragment;
 
+@Deprecated
 public class ProgressHandler extends Handler {
 
     public LinearProgressIndicator linearProgressIndicator;
     public TextView textView;
     public AsyncFileDownload asyncfiledownload;
 
+    @Deprecated
     @Override
     public void handleMessage(@NonNull Message msg) {
         super.handleMessage(msg);

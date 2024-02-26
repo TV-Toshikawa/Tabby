@@ -23,6 +23,7 @@ import java.util.Objects;
 
 public class PackageAddedReceiver extends BroadcastReceiver {
 
+    @Deprecated
     @Override
     public void onReceive(Context context, Intent intent) {
         Thread.setDefaultUncaughtExceptionHandler(new CrashHandler(context));

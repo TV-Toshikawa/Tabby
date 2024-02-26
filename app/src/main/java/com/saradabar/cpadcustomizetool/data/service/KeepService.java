@@ -36,6 +36,7 @@ public class KeepService extends Service {
         return instance;
     }
 
+    @Deprecated
     private void KeepLauncher() {
         bindService(Constants.DCHA_SERVICE, mDchaServiceConnection, Context.BIND_AUTO_CREATE);
         SharedPreferences sp = getSharedPreferences(Constants.SHARED_PREFERENCE_KEY, Context.MODE_PRIVATE);
@@ -65,6 +66,7 @@ public class KeepService extends Service {
         }
     };
 
+    @Deprecated
     ContentObserver DchaStateObserver = new ContentObserver(new Handler()) {
         @Override
         public void onChange(boolean selfChange) {
@@ -81,6 +83,7 @@ public class KeepService extends Service {
         }
     };
 
+    @Deprecated
     ContentObserver NavigationObserver = new ContentObserver(new Handler()) {
         @Override
         public void onChange(boolean selfChange) {
@@ -95,7 +98,9 @@ public class KeepService extends Service {
         }
     };
 
+    @Deprecated
     ContentObserver MarketObserver = new ContentObserver(new Handler()) {
+        @Deprecated
         @Override
         public void onChange(boolean selfChange) {
             super.onChange(selfChange);
@@ -111,7 +116,9 @@ public class KeepService extends Service {
         }
     };
 
+    @Deprecated
     ContentObserver UsbDebugObserver = new ContentObserver(new Handler()) {
+        @Deprecated
         @Override
         public void onChange(boolean selfChange) {
             super.onChange(selfChange);
@@ -146,6 +153,7 @@ public class KeepService extends Service {
         }
     };
 
+    @Deprecated
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Thread.setDefaultUncaughtExceptionHandler(new CrashHandler(getApplicationContext()));
@@ -222,6 +230,7 @@ public class KeepService extends Service {
         return null;
     }
 
+    @Deprecated
     public void startService() {
         Thread.setDefaultUncaughtExceptionHandler(new CrashHandler(getApplicationContext()));
         SharedPreferences sp = getSharedPreferences(Constants.SHARED_PREFERENCE_KEY, Context.MODE_PRIVATE);

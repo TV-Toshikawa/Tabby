@@ -34,6 +34,7 @@ import java.io.IOException;
 
 public class SelfUpdateActivity extends AppCompatActivity implements DownloadEventListener {
 
+    @Deprecated
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +68,7 @@ public class SelfUpdateActivity extends AppCompatActivity implements DownloadEve
         return json;
     }
 
+    @Deprecated
     @Override
     public void onDownloadComplete(int reqCode) {
         switch (reqCode) {
@@ -119,6 +121,7 @@ public class SelfUpdateActivity extends AppCompatActivity implements DownloadEve
                 .show();
     }
 
+    @Deprecated
     private void showUpdateDialog(String str) {
         View view = getLayoutInflater().inflate(R.layout.view_update, null);
         TextView tv = view.findViewById(R.id.update_information);

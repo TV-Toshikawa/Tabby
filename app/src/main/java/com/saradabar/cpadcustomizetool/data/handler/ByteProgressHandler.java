@@ -15,14 +15,18 @@ public class ByteProgressHandler extends Handler {
     int reqCode;
     public ProgressBar progressBar;
     public TextView textPercent, textByte;
+    @Deprecated
     public DeviceOwnerFragment.TryXApkTask tryXApkTask;
+    @Deprecated
     public DeviceOwnerFragment.TryApkMTask tryApkMTask;
     public boolean isCompleted = false;
 
+    @Deprecated
     public ByteProgressHandler(int i) {
         reqCode = i;
     }
 
+    @Deprecated
     @Override
     public void handleMessage(@NonNull Message msg) {
         super.handleMessage(msg);

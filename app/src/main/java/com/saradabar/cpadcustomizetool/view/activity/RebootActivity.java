@@ -23,6 +23,7 @@ public class RebootActivity extends AppCompatActivity {
 
     IDchaService mDchaService;
 
+    @Deprecated
     @Override
     public final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,7 @@ public class RebootActivity extends AppCompatActivity {
         }
     }
 
+    @Deprecated
     private void startReboot() {
         new MaterialAlertDialogBuilder(this)
                 .setMessage(R.string.dialog_question_reboot)

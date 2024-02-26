@@ -35,6 +35,7 @@ public class EmergencyActivity extends AppCompatActivity {
 
     IDchaService mDchaService;
 
+    @Deprecated
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,10 +75,12 @@ public class EmergencyActivity extends AppCompatActivity {
         new Handler().postDelayed(runnable, 10);
     }
 
+    @Deprecated
     private boolean startCheck() {
         return Preferences.load(this, Constants.KEY_FLAG_SETTINGS, false);
     }
 
+    @Deprecated
     private boolean setSystemSettings(boolean study) {
         ContentResolver resolver = getContentResolver();
 
@@ -131,6 +134,7 @@ public class EmergencyActivity extends AppCompatActivity {
         }
     }
 
+    @Deprecated
     private boolean setDchaSettings(String packageName, String className) {
         ResolveInfo resolveInfo = getPackageManager().resolveActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME), 0);
 

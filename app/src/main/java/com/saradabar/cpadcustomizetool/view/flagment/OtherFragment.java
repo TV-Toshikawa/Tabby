@@ -37,6 +37,7 @@ public class OtherFragment extends PreferenceFragmentCompat {
             preScreenOffTimeOut,
             preWebView;
 
+    @Deprecated
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.pre_other, rootKey);

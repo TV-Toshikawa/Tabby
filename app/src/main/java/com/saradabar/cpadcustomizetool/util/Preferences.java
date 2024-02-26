@@ -9,30 +9,37 @@ import java.util.Set;
 public class Preferences {
 
     /* データ管理 */
+    @Deprecated
     public static void save(Context context, String key, int value) {
         PreferenceManager.getDefaultSharedPreferences(context).edit().putInt(key, value).apply();
     }
 
+    @Deprecated
     public static void save(Context context, String key, boolean value) {
         PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean(key, value).apply();
     }
 
+    @Deprecated
     public static void save(Context context, String key, String value) {
         PreferenceManager.getDefaultSharedPreferences(context).edit().putString(key, value).apply();
     }
 
+    @Deprecated
     public static int load(Context context, String key, int value) {
         return PreferenceManager.getDefaultSharedPreferences(context).getInt(key, value);
     }
 
+    @Deprecated
     public static boolean load(Context context, String key, boolean value) {
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(key, value);
     }
 
+    @Deprecated
     public static String load(Context context, String key, String value) {
         return PreferenceManager.getDefaultSharedPreferences(context).getString(key, value);
     }
 
+    @Deprecated
     public static boolean delete(Context context, String key) {
         PreferenceManager.getDefaultSharedPreferences(context).edit().remove(key).apply();
         return true;

@@ -14,6 +14,7 @@ import com.saradabar.cpadcustomizetool.util.Preferences;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
 
+    @Deprecated
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {

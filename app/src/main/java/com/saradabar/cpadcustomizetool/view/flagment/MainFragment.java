@@ -123,6 +123,7 @@ public class MainFragment extends PreferenceFragmentCompat {
     }
 
     /* システムUIオブザーバー */
+    @Deprecated
     ContentObserver obsDchaState = new ContentObserver(new Handler()) {
         @Override
         public void onChange(boolean selfChange) {
@@ -136,6 +137,7 @@ public class MainFragment extends PreferenceFragmentCompat {
     };
 
     /* ナビゲーションバーオブザーバー */
+    @Deprecated
     ContentObserver obsNavigation = new ContentObserver(new Handler()) {
         @Override
         public void onChange(boolean selfChange) {
@@ -149,7 +151,9 @@ public class MainFragment extends PreferenceFragmentCompat {
     };
 
     /* 提供元オブザーバー */
+    @Deprecated
     ContentObserver obsUnkSrc = new ContentObserver(new Handler()) {
+        @Deprecated
         @Override
         public void onChange(boolean selfChange) {
             super.onChange(selfChange);
@@ -163,6 +167,7 @@ public class MainFragment extends PreferenceFragmentCompat {
     };
 
     /* USBデバッグオブザーバー */
+    @Deprecated
     ContentObserver obsAdb = new ContentObserver(new Handler()) {
         @Override
         public void onChange(boolean selfChange) {
@@ -200,6 +205,7 @@ public class MainFragment extends PreferenceFragmentCompat {
     };
 
     /* Dcha・UtilServiceにバインド */
+    @Deprecated
     public boolean tryBindDchaService(int req, boolean isDchaReq) {
         try {
             if (isDchaReq) {
@@ -305,6 +311,7 @@ public class MainFragment extends PreferenceFragmentCompat {
         }
     }
 
+    @Deprecated
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.pre_main, rootKey);
@@ -1060,6 +1067,7 @@ public class MainFragment extends PreferenceFragmentCompat {
     }
 
     /* 再起動ショートカットを作成 */
+    @Deprecated
     private void makeRebootShortcut() {
         requireActivity().sendBroadcast(new Intent("com.android.launcher.action.INSTALL_SHORTCUT").putExtra(Intent.EXTRA_SHORTCUT_INTENT, new Intent(Intent.ACTION_MAIN)
                         .setClassName("com.saradabar.cpadcustomizetool", "com.saradabar.cpadcustomizetool.view.activity.RebootActivity"))
@@ -1069,6 +1077,7 @@ public class MainFragment extends PreferenceFragmentCompat {
     }
 
     /* 初期化 */
+    @Deprecated
     private void initialize() {
         SharedPreferences sp = requireActivity().getSharedPreferences(Constants.SHARED_PREFERENCE_KEY, Context.MODE_PRIVATE);
 
@@ -1168,6 +1177,7 @@ public class MainFragment extends PreferenceFragmentCompat {
         }
     }
 
+    @Deprecated
     private void cfmDialog() {
         new MaterialAlertDialogBuilder(requireActivity())
                 .setCancelable(false)
@@ -1238,6 +1248,7 @@ public class MainFragment extends PreferenceFragmentCompat {
         initialize();
     }
 
+    @Deprecated
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -1290,6 +1301,7 @@ public class MainFragment extends PreferenceFragmentCompat {
     }
 
     /* インストールタスク */
+    @Deprecated
     public static class installTask extends AsyncTask<Boolean, Void, Boolean> {
 
         private Listener mListener;
@@ -1325,15 +1337,18 @@ public class MainFragment extends PreferenceFragmentCompat {
     }
 
     /* 解像度タスク */
+    @Deprecated
     public static class resolutionTask extends AsyncTask<Boolean, Void, Boolean> {
 
         private Listener mListener;
 
+        @Deprecated
         @Override
         protected Boolean doInBackground(Boolean... value) {
             return MainFragment.getInstance().trySetResolution();
         }
 
+        @Deprecated
         @Override
         protected void onPostExecute(Boolean result) {
             Runnable runnable = () -> {
@@ -1367,6 +1382,7 @@ public class MainFragment extends PreferenceFragmentCompat {
     }
 
     /* 解像度のリセット */
+    @Deprecated
     public void resetResolution() {
         switch (Preferences.load(requireActivity(), Constants.KEY_MODEL_NAME, Constants.MODEL_CT2)) {
             case Constants.MODEL_CT2:

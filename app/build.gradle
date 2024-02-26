@@ -1,0 +1,101 @@
+plugins {
+    id 'com.android.application'
+    id 'dev.rikka.tools.refine'
+}
+
+android {
+    compileSdk 34
+    namespace 'com.saradabar.cpadcustomizetool'
+
+    defaultConfig {
+        minSdk 22
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk 22
+
+        versionCode 43
+        versionName "2.0.1"
+
+        multiDexEnabled true
+
+        ndk {
+            //noinspection ChromeOsAbiSupport
+            abiFilters += "arm64-v8a"
+        }
+
+        resourceConfigurations += "ja"
+    }
+
+    signingConfigs {
+        android {
+            storeFile file('android.jks')
+            storePassword 'android'
+            keyAlias 'android'
+            keyPassword 'android'
+        }
+        release {
+            storeFile file('release.jks')
+            storePassword System.getenv('STORE_PASSWORD')
+            keyAlias System.getenv('KEY_ALIAS')
+            keyPassword System.getenv('KEY_PASSWORD')
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles += "proguard-rules.pro"
+        }
+
+        debug {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles += "proguard-rules.pro"
+        }
+    }
+
+    buildFeatures {
+        aidl true
+        buildConfig true
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+
+    //Lib
+    compileOnly files('libs/BenesseExtensionLibrary.jar')
+    implementation fileTree(dir: 'libs', include: ['IDcha*.jar'])
+
+    //Material
+    implementation 'com.google.android.material:material:1.11.0'
+
+    //AndroidX
+    implementation 'androidx.preference:preference:1.2.1'
+
+    //WalkThrough
+    implementation 'com.stephentuso:welcome:1.4.1'
+
+    //ZipLib
+    implementation 'org.zeroturnaround:zt-zip:1.12'
+
+    //Dhizuku
+    implementation 'io.github.iamr0s:Dhizuku-API:2.4'
+
+    //Shizuku
+    compileOnly 'dev.rikka.hidden:stub:4.3.2'
+    implementation 'dev.rikka.tools.refine:runtime:4.4.0'
+    implementation 'dev.rikka.shizuku:api:13.1.5'
+    implementation 'dev.rikka.shizuku:provider:13.1.5'
+
+    //HiddenApiBypass
+    implementation 'org.lsposed.hiddenapibypass:hiddenapibypass:4.3'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+}

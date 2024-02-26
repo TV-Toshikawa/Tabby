@@ -14,6 +14,8 @@ import android.os.RemoteException;
 import android.provider.DocumentsContract;
 import android.provider.OpenableColumns;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
 import com.rosan.dhizuku.api.Dhizuku;
@@ -86,7 +88,8 @@ public class Common {
         return df.format(System.currentTimeMillis());
     }
 
-    public static void LogOverWrite(Context context, Throwable throwable) {
+    @Deprecated
+    public static void LogOverWrite(Context context, @NonNull Throwable throwable) {
         StringWriter stringWriter = new StringWriter();
         throwable.printStackTrace(new PrintWriter(stringWriter));
         String message = "- ログ開始 -\n" +
@@ -107,6 +110,7 @@ public class Common {
     }
 
     /* 選択したファイルデータを取得 */
+    @Nullable
     public static String getFilePath(Context context, Uri uri) {
         if (DocumentsContract.isDocumentUri(context, uri)) {
             switch (Objects.requireNonNull(uri.getAuthority())) {
@@ -171,6 +175,7 @@ public class Common {
         });
     }
 
+    @Deprecated
     public static boolean isCfmDialog(Context context) {
         if (Preferences.load(context, Constants.KEY_MODEL_NAME, 0) == Constants.MODEL_CTX || Preferences.load(context, Constants.KEY_MODEL_NAME, 0) == Constants.MODEL_CTZ) {
             /* チャレパNEO・NEXTは対象 */

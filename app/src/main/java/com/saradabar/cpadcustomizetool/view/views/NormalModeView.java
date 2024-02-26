@@ -63,6 +63,7 @@ public class NormalModeView {
         }
 
         /* ランチャーに設定されているかの確認 */
+        @Deprecated
         private boolean isLauncher(String s) {
             try {
                 return Objects.equals(s, Preferences.load(getContext(), Constants.KEY_NORMAL_LAUNCHER, ""));

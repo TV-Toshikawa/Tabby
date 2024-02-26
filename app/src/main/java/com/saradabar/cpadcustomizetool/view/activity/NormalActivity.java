@@ -34,6 +34,7 @@ public class NormalActivity extends AppCompatActivity {
 
     IDchaService mDchaService;
 
+    @Deprecated
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,10 +72,12 @@ public class NormalActivity extends AppCompatActivity {
         new Handler().postDelayed(runnable, 10);
     }
 
+    @Deprecated
     private boolean startCheck() {
         return Preferences.load(this, Constants.KEY_FLAG_SETTINGS, false);
     }
 
+    @Deprecated
     private boolean setSystemSettings() {
         ContentResolver resolver = getContentResolver();
 
@@ -101,6 +104,7 @@ public class NormalActivity extends AppCompatActivity {
         return true;
     }
 
+    @Deprecated
     private boolean setDchaSettings() {
         if (!Preferences.load(getApplicationContext(), Constants.KEY_FLAG_DCHA_SERVICE, false)) {
             Toast.toast(getApplicationContext(), R.string.toast_use_not_dcha);

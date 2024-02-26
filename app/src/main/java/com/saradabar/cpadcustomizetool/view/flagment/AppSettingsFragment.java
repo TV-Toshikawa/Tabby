@@ -39,6 +39,7 @@ public class AppSettingsFragment extends PreferenceFragmentCompat {
             preDelCrashLog,
             preUpdateMode;
 
+    @Deprecated
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.pre_app, rootKey);

@@ -18,6 +18,7 @@ import java.util.Objects;
 public class WebViewActivity extends AppCompatActivity {
 
     @SuppressLint("SetJavaScriptEnabled")
+    @Deprecated
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,7 @@ public class WebViewActivity extends AppCompatActivity {
                 }
             }
 
+            @Deprecated
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (isUrlDistrusted(url)) {

@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements DownloadEventList
 
     IDchaService mDchaService;
 
+    @Deprecated
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements DownloadEventList
         }
     }
 
+    @Deprecated
     private void crashError() {
         new MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
@@ -89,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements DownloadEventList
                 .show();
     }
 
+    @Deprecated
     private void firstCheck() {
         /* 初回起動か確認 */
         if (Preferences.load(this, Constants.KEY_FLAG_SETTINGS, false)) {
@@ -107,12 +110,14 @@ public class MainActivity extends AppCompatActivity implements DownloadEventList
     }
 
     /* アップデートチェック */
+    @Deprecated
     private void updateCheck() {
         showLoadingDialog();
         new AsyncFileDownload(this, Constants.URL_CHECK, new File(new File(getExternalCacheDir(), "Check.json").getPath()), Constants.REQUEST_DOWNLOAD_UPDATE_CHECK).execute();
     }
 
     /* ダウンロード完了 */
+    @Deprecated
     @Override
     public void onDownloadComplete(int reqCode) {
         switch (reqCode) {
@@ -159,6 +164,7 @@ public class MainActivity extends AppCompatActivity implements DownloadEventList
     }
 
     /* アップデートダイアログ */
+    @Deprecated
     private void showUpdateDialog(String str) {
         /* モデルIDをセット */
         switch (Build.MODEL) {
@@ -354,6 +360,7 @@ public class MainActivity extends AppCompatActivity implements DownloadEventList
     }
 
     /* DchaService動作チェック */
+    @Deprecated
     private void checkDchaService() {
         /* DchaServiceを使用するか確認 */
         if (Preferences.load(this, Constants.KEY_FLAG_DCHA_SERVICE, false)) {
@@ -403,6 +410,7 @@ public class MainActivity extends AppCompatActivity implements DownloadEventList
     }
 
     /* Pad2起動設定チェック */
+    @Deprecated
     private void confCheckCT2() {
         Preferences.save(this, Constants.KEY_MODEL_NAME, Constants.MODEL_CT2);
 
@@ -416,6 +424,7 @@ public class MainActivity extends AppCompatActivity implements DownloadEventList
     }
 
     /* Pad3起動設定チェック */
+    @Deprecated
     private void confCheckCT3() {
         Preferences.save(this, Constants.KEY_MODEL_NAME, Constants.MODEL_CT3);
 
@@ -431,6 +440,7 @@ public class MainActivity extends AppCompatActivity implements DownloadEventList
     }
 
     /* NEO起動設定チェック */
+    @Deprecated
     private void confCheckCTX() {
         Preferences.save(this, Constants.KEY_MODEL_NAME, Constants.MODEL_CTX);
 
@@ -446,6 +456,7 @@ public class MainActivity extends AppCompatActivity implements DownloadEventList
     }
 
     /* NEXT起動設定チェック */
+    @Deprecated
     private void confCheckCTZ() {
         Preferences.save(this, Constants.KEY_MODEL_NAME, Constants.MODEL_CTZ);
 
@@ -461,6 +472,7 @@ public class MainActivity extends AppCompatActivity implements DownloadEventList
     }
 
     /* 初回起動お知らせ */
+    @Deprecated
     public void WarningDialog() {
         new MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
@@ -478,6 +490,7 @@ public class MainActivity extends AppCompatActivity implements DownloadEventList
     }
 
     /* システム設定変更権限か付与されているか確認 */
+    @Deprecated
     private boolean isPermissionCheck() {
         if (isWriteSystemPermissionCheck()) {
             new MaterialAlertDialogBuilder(this)
@@ -524,6 +537,7 @@ public class MainActivity extends AppCompatActivity implements DownloadEventList
         return bindService(Constants.DCHA_SERVICE, mDchaServiceConnection, Context.BIND_AUTO_CREATE);
     }
 
+    @Deprecated
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

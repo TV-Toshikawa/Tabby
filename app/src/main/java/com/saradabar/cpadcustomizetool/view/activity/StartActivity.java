@@ -71,6 +71,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
     }
 
     /* 設定画面表示 */
+    @Deprecated
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +101,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
 
     /* メニュー選択 */
     @SuppressLint("NonConstantResourceId")
+    @Deprecated
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -124,6 +126,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
 
     /* 戻るボタン */
     @SuppressLint("MissingSuperCall")
+    @Deprecated
     @Override
     public void onBackPressed() {
         menu.findItem(R.id.app_info_3).setVisible(true);
@@ -170,12 +173,14 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
         return bindService(Constants.DCHA_SERVICE, mDchaServiceConnection, Context.BIND_AUTO_CREATE);
     }
 
+    @Deprecated
     public DeviceOwnerFragment.TryApkMTask.Listener apkMListener() {
         return new DeviceOwnerFragment.TryApkMTask.Listener() {
             AlertDialog alertDialog;
             ByteProgressHandler progressHandler;
 
             @SuppressLint("SetTextI18n")
+            @Deprecated
             @Override
             public void onShow() {
                 View view = getLayoutInflater().inflate(R.layout.view_progress, null);
@@ -200,6 +205,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
                 progressHandler.sendEmptyMessage(0);
             }
 
+            @Deprecated
             @Override
             public void onSuccess() {
                 alertDialog.dismiss();
@@ -261,12 +267,14 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
         };
     }
 
+    @Deprecated
     public DeviceOwnerFragment.TryXApkTask.Listener xApkListener() {
         return new DeviceOwnerFragment.TryXApkTask.Listener() {
             AlertDialog alertDialog;
             ByteProgressHandler progressHandler;
 
             @SuppressLint("SetTextI18n")
+            @Deprecated
             @Override
             public void onShow() {
                 View view = getLayoutInflater().inflate(R.layout.view_progress, null);
@@ -291,6 +299,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
                 progressHandler.sendEmptyMessage(0);
             }
 
+            @Deprecated
             @Override
             public void onSuccess() {
                 alertDialog.dismiss();
@@ -352,6 +361,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
         };
     }
 
+    @Deprecated
     public DeviceOwnerFragment.TryApkTask.Listener apkListener() {
         return new DeviceOwnerFragment.TryApkTask.Listener() {
 
@@ -452,6 +462,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
         };
     }
 
+    @Deprecated
     public MainFragment.installTask.Listener installListener() {
         return new MainFragment.installTask.Listener() {
 
@@ -503,12 +514,14 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
         };
     }
 
+    @Deprecated
     public MainFragment.resolutionTask.Listener resolutionListener() {
         return new MainFragment.resolutionTask.Listener() {
             Handler mHandler;
             Runnable mRunnable;
 
             /* 成功 */
+            @Deprecated
             @Override
             public void onSuccess() {
                 /* 設定変更カウントダウンダイアログ表示 */
@@ -563,6 +576,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
     }
 
     /* 再表示 */
+    @Deprecated
     @Override
     public void onResume() {
         super.onResume();
@@ -575,6 +589,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
         }
     }
 
+    @Deprecated
     @Override
     public void onInstallSuccess(int reqCode) {
         switch (reqCode) {
@@ -596,6 +611,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
         }
     }
 
+    @Deprecated
     @Override
     public void onInstallFailure(int reqCode, String str) {
         switch (reqCode) {
@@ -626,6 +642,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
         }
     }
 
+    @Deprecated
     @Override
     public void onInstallError(int reqCode, String str) {
         switch (reqCode) {
@@ -656,6 +673,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
         }
     }
 
+    @Deprecated
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -676,6 +694,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
         }
     }
 
+    @Deprecated
     @Override
     public void onDownloadComplete(int reqCode) {
         switch (reqCode) {
@@ -824,6 +843,7 @@ public class StartActivity extends AppCompatActivity implements InstallEventList
         }
     }
 
+    @Deprecated
     private void startDownload() {
         LinearProgressIndicator linearProgressIndicator = findViewById(R.id.act_progress_main);
         linearProgressIndicator.show();

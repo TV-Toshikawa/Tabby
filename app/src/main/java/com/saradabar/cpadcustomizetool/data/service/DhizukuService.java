@@ -98,6 +98,7 @@ public class DhizukuService extends IDhizukuService.Stub {
         }
     }
 
+    @Deprecated
     @Override
     public void clearDeviceOwnerApp(String packageName) throws RemoteException {
         dpm.clearDeviceOwnerApp(packageName);

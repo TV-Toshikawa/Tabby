@@ -22,6 +22,7 @@ public class CrashLogActivity extends AppCompatActivity {
     ScrollView scrollView;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+    @Deprecated
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

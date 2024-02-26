@@ -73,6 +73,7 @@ public class Updater implements InstallEventListener {
                 .show();
     }
 
+    @Deprecated
     public void installApk(Context context, int flag) {
         switch (Preferences.load(activity, Constants.KEY_FLAG_UPDATE_MODE, 1)) {
             case 0:
