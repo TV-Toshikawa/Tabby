@@ -77,7 +77,8 @@ public class Constants {
     public static final String KEY_SAVE_KEEP_HOME = "save_keep_home";
     public static final String KEY_ENABLED_AUTO_USB_DEBUG = "enabled_auto_usb_debug";
 
-    public static final Intent DCHA_SERVICE = new Intent("jp.co.benesse.dcha.dchaservice.DchaService").setPackage("jp.co.benesse.dcha.dchaservice");
+    public static final String DCHA_SERVICE_PACKAGE = "jp.co.benesse.dcha.dchaservice";
+    public static final Intent DCHA_SERVICE = new Intent(DCHA_SERVICE_PACKAGE + ".DchaService").setPackage(DCHA_SERVICE_PACKAGE);
     public static final Intent DCHA_UTIL_SERVICE = new Intent("jp.co.benesse.dcha.dchautilservice.DchaUtilService").setPackage("jp.co.benesse.dcha.dchautilservice");
     public static final Intent KEEP_SERVICE = new Intent("com.saradabar.cpadcustomizetool.data.service.KeepService").setPackage("com.saradabar.cpadcustomizetool");
     public static final Intent PROTECT_KEEP_SERVICE = new Intent("com.saradabar.cpadcustomizetool.data.service.ProtectKeepService").setPackage("com.saradabar.cpadcustomizetool");

@@ -1141,8 +1141,13 @@ public class MainFragment extends PreferenceFragmentCompat {
         /* 端末ごとにPreferenceの状態を設定 */
         switch (Preferences.load(requireActivity(), Constants.KEY_MODEL_NAME, Constants.MODEL_CT2)) {
             case Constants.MODEL_CT2:
-                preSilentInstall.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
-                preSilentInstall.setEnabled(false);
+                try {
+                    if (requireActivity().getPackageManager().getPackageInfo(Constants.DCHA_SERVICE_PACKAGE, 0).versionCode < 5) {
+                        preSilentInstall.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
+                        preSilentInstall.setEnabled(false);
+                    }
+                } catch (PackageManager.NameNotFoundException ignored) {
+                }
                 break;
             case Constants.MODEL_CT3:
                 if (!Build.ID.contains("01.")) {
