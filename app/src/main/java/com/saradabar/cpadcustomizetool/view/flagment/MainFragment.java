@@ -27,6 +27,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.ServiceManager;
+import android.os.UserHandle;
+import android.os.UserManager;
 import android.provider.Settings;
 import android.view.Display;
 import android.view.IWindowManager;
@@ -1150,7 +1152,7 @@ public class MainFragment extends PreferenceFragmentCompat {
                 }
                 break;
             case Constants.MODEL_CT3:
-                if (!Build.ID.contains("01.")) {
+                if (((UserManager) requireActivity().getSystemService(Context.USER_SERVICE)).hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES)) {
                     swKeepUnkSrc.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
                     swKeepUnkSrc.setEnabled(false);
                     swUnkSrc.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
@@ -1161,10 +1163,12 @@ public class MainFragment extends PreferenceFragmentCompat {
                 break;
             case Constants.MODEL_CTX:
             case Constants.MODEL_CTZ:
-                swUnkSrc.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
-                swKeepUnkSrc.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
-                swUnkSrc.setEnabled(false);
-                swKeepUnkSrc.setEnabled(false);
+                if (((UserManager) requireActivity().getSystemService(Context.USER_SERVICE)).hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES)) {
+                    swKeepUnkSrc.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
+                    swKeepUnkSrc.setEnabled(false);
+                    swUnkSrc.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
+                    swUnkSrc.setEnabled(false);
+                }
                 break;
         }
 
