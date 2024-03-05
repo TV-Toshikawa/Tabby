@@ -1168,26 +1168,19 @@ public class MainFragment extends PreferenceFragmentCompat {
                 }
                 break;
             case Constants.MODEL_CT3:
-                if (((UserManager) requireActivity().getSystemService(Context.USER_SERVICE)).hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES)) {
-                    swKeepUnkSrc.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
-                    swKeepUnkSrc.setEnabled(false);
-                    swUnkSrc.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
-                    swUnkSrc.setEnabled(false);
-                }
                 swDeviceAdmin.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
                 swDeviceAdmin.setEnabled(false);
                 break;
             case Constants.MODEL_CTX:
             case Constants.MODEL_CTZ:
-                if (((UserManager) requireActivity().getSystemService(Context.USER_SERVICE)).hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES)) {
-                    swKeepUnkSrc.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
-                    swKeepUnkSrc.setEnabled(false);
-                    swUnkSrc.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
-                    swUnkSrc.setEnabled(false);
-                }
                 break;
         }
-
+        if (((UserManager) requireActivity().getSystemService(Context.USER_SERVICE)).hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES)) {
+            swKeepUnkSrc.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
+            swKeepUnkSrc.setEnabled(false);
+            swUnkSrc.setSummary(Build.MODEL + getString(R.string.pre_main_sum_message_1));
+            swUnkSrc.setEnabled(false);
+        }
         if (((DevicePolicyManager) requireActivity().getSystemService(Context.DEVICE_POLICY_SERVICE)).isDeviceOwnerApp(requireActivity().getPackageName())) {
             swDeviceAdmin.setEnabled(false);
             swDeviceAdmin.setSummary(getString(R.string.pre_main_sum_already_device_owner));
