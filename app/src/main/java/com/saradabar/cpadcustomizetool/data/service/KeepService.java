@@ -42,7 +42,6 @@ public class KeepService extends Service {
     private boolean isUiObserverEnable = false;
     private boolean isUnknownObserverEnable = false;
     private boolean isUsbObserverEnable = false;
-    private final String BC_PASSWORD_HIT_FLAG = "bc_password_hit";
     private boolean isHomeObserverEnable = false;
 
     static KeepService instance = null;
@@ -153,7 +152,7 @@ public class KeepService extends Service {
                         Settings.Global.putInt(getContentResolver(), Settings.Global.ADB_ENABLED, 1);
                     }
                 }
-                Settings.System.putInt(getContentResolver(), BC_PASSWORD_HIT_FLAG, 1);
+                Settings.System.putInt(getContentResolver(), Constants.BC_PASSWORD_HIT_FLAG, 1);
             } catch (Exception ignored) {
                 if (isCfmDialog(getBaseContext())) {
                     if (Preferences.load(getBaseContext(), Constants.KEY_MODEL_NAME, 0) == Constants.MODEL_CTX || Preferences.load(getBaseContext(), Constants.KEY_MODEL_NAME, 0) == Constants.MODEL_CTZ) {
@@ -302,7 +301,7 @@ public class KeepService extends Service {
                 break;
             case 4:
                 if (isUsbObserverEnable) {
-                    Settings.System.putInt(getContentResolver(), BC_PASSWORD_HIT_FLAG, 0);
+                    Settings.System.putInt(getContentResolver(), Constants.BC_PASSWORD_HIT_FLAG, 0);
                     getContentResolver().unregisterContentObserver(UsbDebugObserver);
                     isUsbObserverEnable = false;
                 }
