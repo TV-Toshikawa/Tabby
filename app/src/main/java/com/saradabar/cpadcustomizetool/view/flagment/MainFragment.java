@@ -314,9 +314,11 @@ public class MainFragment extends PreferenceFragmentCompat {
                 break;
             case Constants.FLAG_USB_DEBUG_TRUE:
                 Settings.Global.putInt(requireActivity().getContentResolver(), Settings.Global.ADB_ENABLED, 1);
+                Settings.System.putInt(requireActivity().getContentResolver(), BC_PASSWORD_HIT_FLAG, 1);
                 break;
             case Constants.FLAG_USB_DEBUG_FALSE:
                 Settings.Global.putInt(requireActivity().getContentResolver(), Settings.Global.ADB_ENABLED, 0);
+                Settings.System.putInt(requireActivity().getContentResolver(), BC_PASSWORD_HIT_FLAG, 0);
                 break;
             case Constants.FLAG_MARKET_APP_TRUE:
                 Settings.Secure.putInt(requireActivity().getContentResolver(), Settings.Secure.INSTALL_NON_MARKET_APPS, 1);
