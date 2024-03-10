@@ -1,16 +1,11 @@
-# CPad Customize Tool
+# Tabby
 
-このアプリケーションはチャレンジパッドの設定を変更することができます。  
-様々な機能を提供します。
+This is tool for Benesse tablets, with less bloats than original.
 
-## 権限の付与
-
-ADBの有効状態を保持
+## Install
+Install apk, using adb or PackageInstaller.
+Doing those 2 adb commands are recommended as some features are limited without it.
 ```
 adb shell pm grant com.saradabar.cpadcustomizetool android.permission.WRITE_SECURE_SETTINGS
-```
-
-デバイスオーナー権限の付与
-```
 adb shell dpm set-device-owner com.saradabar.cpadcustomizetool/.Receiver.AdministratorReceiver
 ```
